@@ -951,7 +951,7 @@ def dataset_stats(path='coco128.yaml', autodownload=False, verbose=False, profil
         return [[int(c), *(round(x, 4) for x in points)] for c, *points in labels]
 
     def unzip(path):
-        # Unzip data.zip TODO: CONSTRAINT: path/to/abc.zip MUST unzip to 'path/to/abc/'
+        # Unzip data.zip  CONSTRAINT: path/to/abc.zip MUST unzip to 'path/to/abc/'
         if str(path).endswith('.zip'):  # path is data.zip
             assert Path(path).is_file(), f'Error unzipping {path}, file not found'
             ZipFile(path).extractall(path=path.parent)  # unzip
@@ -982,7 +982,7 @@ def dataset_stats(path='coco128.yaml', autodownload=False, verbose=False, profil
     with open(check_yaml(yaml_path), errors='ignore') as f:
         data = yaml.safe_load(f)  # data dict
         if zipped:
-            data['path'] = data_dir  # TODO: should this be dir.resolve()?
+            data['path'] = data_dir  #  should this be dir.resolve()?
     check_dataset(data, autodownload)  # download dataset if missing
     hub_dir = Path(data['path'] + ('-hub' if hub else ''))
     stats = {'nc': data['nc'], 'names': data['names']}  # statistics dictionary
