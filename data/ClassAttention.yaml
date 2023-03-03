@@ -1,0 +1,15 @@
+# parent
+# ├── yolov5
+# └── datasets
+#     └── ClassAttention  ← downloads here
+
+
+path: ../datasets/ClassAttention
+train: images/train  # 7374 images
+val: images/val  # 952 images
+test: images/val  # 952 images
+
+# Classes
+nc: 8
+names: ['answering', 'drinking', 'listening', 'playing phone', 'reading', 'sleeping', 'talking', 'writing']  # class names
+
